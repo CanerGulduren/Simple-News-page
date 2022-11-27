@@ -1,0 +1,207 @@
+@use "color";
+@use "font/font-size";
+@use "font/font-family";
+
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+}
+
+header,
+main,
+footer{
+    width: 95vw; 
+}
+
+h1,
+h2,
+h3,
+h4{
+    color: color.$primary-dark-color;
+}
+
+span{
+    font-size: font-size.$paragraph-lg-size;
+    color: color.$secondary-dark-color;
+    line-height: 1.4;
+}
+
+/*header*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2{
+    font-size: font-size.$header-lg-size;
+}
+
+header ul{
+    display: flex;
+}
+
+header a{
+    font-size: font-size.$paragraph-sm-size;
+    color: color.$secondary-dark-color;
+    padding: .4rem;
+}
+
+/*main*/
+
+main{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.main-img-mobile{
+    width: 100%;
+}
+
+.main-img-desktop{
+    display: none;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+section h1{
+    font-size: font-size.$header-xl-size;
+    line-height: .9;
+    margin-bottom: 1rem;
+}
+
+.main-title{
+    font-size: font-size.$paragraph-lg-size;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-title button{
+    width: 18rem;
+    height: 5rem;
+    font-size: 1.8rem;  
+    background-color: color.$danger-color;
+    color: color.$primary-light-color;
+    border: none;
+}
+
+section,
+aside{
+    margin-bottom: 5rem;
+}
+
+aside{
+    background-color: color.$primary-dark-color;
+    padding-inline: 1rem;
+    display: grid;
+    justify-content: space-evenly;
+}
+
+aside h2{
+    color: color.$warning-color;
+    font-size: font-size.$header-lg-size;
+}
+
+aside h5{
+    font-size: font-size.$header-md-size;
+    color: color.$primary-light-color;
+}
+
+aside span{
+    color: color.$secondary-light-color;
+}
+
+.aside-title{
+    padding-block: 2rem;
+}
+
+.aside-title:not(:last-child){
+    border-bottom: 2px solid color.$secondary-dark-color;
+}
+
+/*footer*/
+
+.footer-title{
+    display: flex;
+    padding-block: 1rem;
+    column-gap: 1rem;
+}
+
+.footer-title h3{
+    font-size: font-size.$header-lg-size;
+    color: color.$secondary-dark-color;
+}
+
+.footer-title h4{
+    font-size: font-size.$header-sm-size;
+}
+
+/*responsive*/
+
+@media(min-width: 650px){
+    span{
+        font-size: font-size.$paragraph-md-size;
+    }
+    header a{
+        font-size: font-size.$links-md-size;
+    }
+    .section-flex{
+        display: flex;
+        gap: 1rem;
+    }
+    .section-flex > *{
+        flex-basis: 100%;
+    }
+    .main-img-desktop{
+        display: block;
+        object-fit: cover;
+        width: 100%;
+    }
+    .main-img-mobile{
+        display: none;
+    }
+    aside h5{
+        font-size: font-size.$header-sm-size;
+    }
+    footer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .footer-title{
+        width: clamp(15rem, 25rem, 45rem);
+    }
+}
+
+@media(min-width: 1200px){
+    main{
+        display: flex;
+    }
+    .aside-title{
+        padding-block: 0;
+    }
+    aside h2{
+        font-size: font-size.$header-md-size;
+        margin: 1.5rem 0 0 1rem;
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "sass-deneme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:compile": "sass --watch sass/main.scss main.css"
+  },
+  "author": "",
+  "license": "ISC"
+}
