@@ -110,9 +110,14 @@ aside {
 
 aside {
   background-color: rgb(8, 5, 39);
-  padding-inline: 1rem;
-  display: grid;
+  padding-inline: 0.5rem;
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+}
+
+aside > * {
+  padding: 2rem;
 }
 
 aside h2 {
@@ -129,18 +134,24 @@ aside span {
   color: rgb(178, 178, 178);
 }
 
-.aside-title {
-  padding-block: 2rem;
-}
-
 .aside-title:not(:last-child) {
   border-bottom: 2px solid rgb(82, 82, 82);
 }
 
 /*footer*/
+footer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+}
+
+footer img {
+  object-fit: cover;
+}
+
 .footer-title {
   display: flex;
-  padding-block: 1rem;
+  padding-block: 2rem;
   column-gap: 1rem;
 }
 
@@ -179,14 +190,6 @@ aside span {
   aside h5 {
     font-size: 2rem;
   }
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .footer-title {
-    width: 25rem;
-  }
 }
 @media (min-width: 1200px) {
   main {
@@ -198,6 +201,9 @@ aside span {
   aside h2 {
     font-size: 2.8rem;
     margin: 1.5rem 0 0 1rem;
+  }
+  aside > * {
+    padding-block: 0;
   }
 }
 
